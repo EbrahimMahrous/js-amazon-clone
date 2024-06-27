@@ -2,54 +2,34 @@
 /*
     MAin idea of JavaScript
        1. Save the data [data = information [Information about our products]]
-       2. Generate the Html
+       How ==> Create array contains all objects
+
+
+       2. Generate the Html dynamic
+       How ==> loop this array and through for each this "products اسم الاري" we can create "productsHTMl += `` متغير هخزن جواه كود اتشتيمل اللي بيمثل المنتج الاول والثاني وهكذا",
+               take each object and save it in parameters "product بارميتر جوه فانكشن" and then run the functions.
+
+
+               A. combine this Html together               // To combine all html togher we will create a varible called "productsHTML" contians all objects added.
+               B. put Html on the web page using the DOM   // document.querySelector(".js-products-grid").innerHTML = productsHTML;
+
+
+
+
        3. Make it interactive
 */
 
-// Create array contains many objects [Save the data]
+// Create array "products اسم الاري" contains all objects [Save the data]
+// data/products.js    دا ملف يحتوي ع اري تشمل كل الاوبجكت
 
-const products =[{
-    image: "images/products/athletic-cotton-socks-6-pairs.jpg",
-    name: "Black and Gray Athletic Cotton Socks - 6 Pairs",
-    rating: {
-      stars: 4.5,
-      count: 87
-    },
-    priceCents: 1090
-  },
 
-  {
-    image: "images/products/intermediate-composite-basketball.jpg",
-    name: "Intermediate Size Basketball",
-    rating: {
-      stars: 4,
-      count: 127
-    }
-  },
 
-  {
-    image: "images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg",
-    name: "Adults Plain Cotton T-Shirt - 2 Pack",
-    rating: {
-      stars: 4.5,
-      count: 56
-    },
-    priceCents: 799,
-  }];
-
-// Generate the html dynamic   [ We can loop this array and through for each this products we can create html ]. 
-
-// take each object and save it in parameters "product" and then run the functions 
-
-// الهدف من اللوب دا اني باخود كل اوبجكت عندي من الليست واخزنه داخل البراميتر بروديكت وبعدين بشغل الفانكش وهكذا 
-
-// 1. combine this Html together
-// To combine all html togher we will create a varible called   -- productsHTML --       
+// A. combine this Html together
+// To combine all html togher we will create a varible called "productsHTML" contians all objects added.
 let productsHTML = '';
 
 
-
-
+// الهدف من اللوب دا اني باخود كل اوبجكت عندي من الليست واخزنه داخل البراميتر بروديكت وبعدين بشغل الفانكش وهكذا 
 products.forEach( (product) => {
     productsHTML += `
                 <div class="product-container">
@@ -96,6 +76,5 @@ products.forEach( (product) => {
     `;
 }); 
 
-
-// 2. put Html on the web page using the DOM    
+// B. put Html on the web page using the DOM    
 document.querySelector(".js-products-grid").innerHTML = productsHTML;
