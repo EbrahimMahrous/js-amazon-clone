@@ -106,6 +106,15 @@ document.querySelectorAll(".js-add-to-cart").forEach((button) => {
             quantity: 1
         })
         }
+
+        let cartQuantity = 0;
+        cart.forEach((item) => {
+            cartQuantity += item.quantity
+        })
+
+        document.querySelector(".js-cart-quantity").innerHTML = cartQuantity;
+
+
         console.log(cart) 
     })
 })
@@ -114,3 +123,11 @@ document.querySelectorAll(".js-add-to-cart").forEach((button) => {
 // 1. check if the product is already in the cart.
 // 2. if it is in the cart, increase the quantity
 // 3. if it's not in the cart, add it to the cart
+
+
+
+
+
+// 
+// 1. calculate the quantity.    loop throght cart
+// 2. put the quantuty on the page.
