@@ -69,7 +69,8 @@ products.forEach( (product) => {
                     <img src="images/icons/checkmark.png">
                     Added
                 </div>
-                <button class="add-to-cart-button button-primary">
+                <button class="add-to-cart-button button-primary js-add-to-cart"
+                data-product-id="${product.id}">
                     Add to Cart
                 </button>
                 </div>
@@ -78,3 +79,38 @@ products.forEach( (product) => {
 
 // B. put Html on the web page using the DOM    
 document.querySelector(".js-products-grid").innerHTML = productsHTML;
+
+// Note
+// How do we know which product to add to cart? 
+// Data Attribute is just another Html attribute allows us to attach any information to an element.
+// syntax for a data attribute contains name and it's value.    ex:  data-product-name="${product.name}"                 kebab-case طريقة الكتابة اللي بتحتوي ع داش
+
+document.querySelectorAll(".js-add-to-cart").forEach((button) => {
+    button.addEventListener("click", ()=>{
+        const productId = button.dataset.productId;
+
+
+        let matchingItem;
+
+        cart.forEach((item) => {
+            if(productId === item.productId){
+                matchingItem = item;
+            }
+        })
+
+        if (matchingItem){
+            matchingItem.quantity += 1
+        } else{
+            cart.push({
+            productId: productId,
+            quantity: 1
+        })
+        }
+        console.log(cart) 
+    })
+})
+
+// quantity  عشان تكون شاطر لازم تكتب انت عايز تعمل اي الاول وبعدين تكتب كووود هو دا اصح شئ
+// 1. check if the product is already in the cart.
+// 2. if it is in the cart, increase the quantity
+// 3. if it's not in the cart, add it to the cart
