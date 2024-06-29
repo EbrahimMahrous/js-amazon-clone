@@ -51,7 +51,9 @@ products.forEach( (product) => {
                     $${(product.priceCents / 100).toFixed(2)} 
                 </div>
                 <div class="product-quantity-container">
-                    <select>
+
+                    <select class="js-quantity-selector-${product.id}">
+
                     <option selected value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -62,6 +64,7 @@ products.forEach( (product) => {
                     <option value="8">8</option>
                     <option value="9">9</option>
                     <option value="10">10</option>
+
                     </select>
                 </div>
                 <div class="product-spacer"></div>
@@ -98,8 +101,23 @@ document.querySelectorAll(".js-add-to-cart").forEach((button) => {
             }
         })
 
+
+        // problem solving
+        // When adding a product to the cart, instead of increasing the quantity by 1, we will increase the quantity by the number in the selector.
+        // الكووود الحلال اهوا قلبي كبير اهوا اوع يولا اهوا
+        const quantitySelector = document.querySelector(
+            `.js-quantity-selector-${productId}`
+          );
+        let quantity = Number(quantitySelector.value);
+        // الحمد الله
+
+
+
+    
+
+
         if (matchingItem){
-            matchingItem.quantity += 1
+            matchingItem.quantity += quantity;
         } else{
             cart.push({
             productId: productId,
@@ -112,10 +130,15 @@ document.querySelectorAll(".js-add-to-cart").forEach((button) => {
             cartQuantity += item.quantity
         })
 
+
+        
+
         document.querySelector(".js-cart-quantity").innerHTML = cartQuantity;
+        
 
 
-        console.log(cart) 
+
+        // console.log(cart) 
     })
 })
 
@@ -131,3 +154,6 @@ document.querySelectorAll(".js-add-to-cart").forEach((button) => {
 // 
 // 1. calculate the quantity.    loop throght cart
 // 2. put the quantuty on the page.
+
+
+
