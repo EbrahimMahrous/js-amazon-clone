@@ -16,7 +16,8 @@ cart.forEach((cartItem) => {
 
     cartSummaryHTML +=
     `
-        <div class="cart-item-container">
+        <div class="cart-item-container 
+        js-cart-item-container-${matchingProduct.id}">
         <div class="delivery-date">
             Delivery date: Tuesday, June 21
         </div>
@@ -105,5 +106,17 @@ document.querySelectorAll('.js-delete-link').forEach((link)=>{
         removeFromCart(productId)
 
         console.log(cart)
+
+        const containeer = document.querySelector(`
+            .js-cart-item-container-${productId}
+        `).remove()
+        console.log(containeer)
     })
 })
+
+
+// Steps
+// 1. Use the DOM to get the element to remove.
+// 2. Use .remove() methods.
+
+// How do we know which element to get?
