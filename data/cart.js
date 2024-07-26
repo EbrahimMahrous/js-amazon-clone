@@ -1,4 +1,4 @@
-export const cart = [{
+export let cart = [{
     // Normalizing the data.
     productId: 'e43638ce-6aa0-4b85-b27f-e1d07eb678c6',
     quantity: 2
@@ -23,4 +23,23 @@ export function addToCart(productId){
         quantity: 1
     })
     }
+}
+
+
+export function removeFromCart(productId){
+
+    // STEPS
+    // 1. Create a new array.
+    // 2. Loop throught the cart.
+    // 3. Add each product to new array, except for this product.
+
+    const newCart = []
+    cart.forEach((cartItem) => {
+        if(cartItem.productId !== productId){
+            newCart.push(cartItem)
+        }
+    })
+
+    cart = newCart;
+
 }
