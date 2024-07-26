@@ -26,8 +26,8 @@
 
 // A. combine this Html together
 // To combine all html togher we will create a varible called "productsHTML" contians all objects added.
-import { cart } from "../data/cart";
-
+import { cart } from "../data/cart.js";
+import { products } from "../data/products.js";
 
 let productsHTML = '';
 
