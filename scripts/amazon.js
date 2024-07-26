@@ -26,8 +26,9 @@
 
 // A. combine this Html together
 // To combine all html togher we will create a varible called "productsHTML" contians all objects added.
-import { cart } from "../data/cart.js";
+import { cart, addToCart } from "../data/cart.js";
 import { products } from "../data/products.js";
+
 
 let productsHTML = '';
 
@@ -95,57 +96,33 @@ document.querySelector(".js-products-grid").innerHTML = productsHTML;
 
    // const addedMessageTimeouts = {}; // اييييييه؟
 
+
+   // Best Practice: Group related code together into its own file.
+
+
+
+
+
+
+
+
+function updateCartQuantity(){
+    let cartQuantity = 0;
+        cart.forEach((cartItem) => {
+            cartQuantity += cartItem.quantity
+        })
+        document.querySelector(".js-cart-quantity").innerHTML = cartQuantity;
+}
+
 document.querySelectorAll(".js-add-to-cart").forEach((button) => {
     button.addEventListener("click", ()=>{
         const productId = button.dataset.productId;
-        let matchingItem;
-        cart.forEach((item) => {
-            if(productId === item.productId){
-                matchingItem = item;
-            }
-        })
-        // problem solving
-        // When adding a product to the cart, instead of increasing the quantity by 1, we will increase the quantity by the number in the selector.
-        // الكووود الحلال اهوا قلبي كبير اهوا اوع يولا اهوا
-        const quantitySelector = document.querySelector(
-            `.js-quantity-selector-${productId}`
-          );
-        let quantity = Number(quantitySelector.value);
-        // الحمد الله
 
+        addToCart(productId)
 
-    //    const addedMessage = document.querySelector(`.js-added-to-cart-${productId}`)
-    //    addedMessage.classList.add('added-to-cart-visible');
-    //    setTimeout(() => {
-    //     const previousTimeoutId = addedMessageTimeouts[productId];
-    //     if (previousTimeoutId) {
-    //       clearTimeout(previousTimeoutId);
-    //     }
-    //     })
-    //     const timeoutId = setTimeout(() => {
-    //       addedMessage.classList.remove('added-to-cart-visible');
-    //     }, 2000)
-    //   addedMessageTimeouts[productId] = timeoutId;
-
-
-        if (matchingItem){
-            matchingItem.quantity += quantity;
-        } else{
-            cart.push({
-            productId: productId,
-            quantity: 1
-        })
-        }
-
-        let cartQuantity = 0;
-        cart.forEach((item) => {
-            cartQuantity += item.quantity
-        })
-
-
-        document.querySelector(".js-cart-quantity").innerHTML = cartQuantity;
+        updateCartQuantity()
         
-        // console.log(cart) 
+        
     })
 })
 
