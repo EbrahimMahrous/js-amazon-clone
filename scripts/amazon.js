@@ -26,6 +26,9 @@
 
 // A. combine this Html together
 // To combine all html togher we will create a varible called "productsHTML" contians all objects added.
+import { cart } from "../data/cart";
+
+
 let productsHTML = '';
 
 
@@ -68,10 +71,12 @@ products.forEach( (product) => {
                     </select>
                 </div>
                 <div class="product-spacer"></div>
-                <div class="added-to-cart">
+
+                <div class="added-to-cart js-added-to-cart-${product.id}">
                     <img src="images/icons/checkmark.png">
                     Added
                 </div>
+
                 <button class="add-to-cart-button button-primary js-add-to-cart"
                 data-product-id="${product.id}">
                     Add to Cart
@@ -88,20 +93,17 @@ document.querySelector(".js-products-grid").innerHTML = productsHTML;
 // Data Attribute is just another Html attribute allows us to attach any information to an element.
 // syntax for a data attribute contains name and it's value.    ex:  data-product-name="${product.name}"                 kebab-case طريقة الكتابة اللي بتحتوي ع داش
 
+   // const addedMessageTimeouts = {}; // اييييييه؟
+
 document.querySelectorAll(".js-add-to-cart").forEach((button) => {
     button.addEventListener("click", ()=>{
         const productId = button.dataset.productId;
-
-
         let matchingItem;
-
         cart.forEach((item) => {
             if(productId === item.productId){
                 matchingItem = item;
             }
         })
-
-
         // problem solving
         // When adding a product to the cart, instead of increasing the quantity by 1, we will increase the quantity by the number in the selector.
         // الكووود الحلال اهوا قلبي كبير اهوا اوع يولا اهوا
@@ -112,8 +114,18 @@ document.querySelectorAll(".js-add-to-cart").forEach((button) => {
         // الحمد الله
 
 
-
-    
+    //    const addedMessage = document.querySelector(`.js-added-to-cart-${productId}`)
+    //    addedMessage.classList.add('added-to-cart-visible');
+    //    setTimeout(() => {
+    //     const previousTimeoutId = addedMessageTimeouts[productId];
+    //     if (previousTimeoutId) {
+    //       clearTimeout(previousTimeoutId);
+    //     }
+    //     })
+    //     const timeoutId = setTimeout(() => {
+    //       addedMessage.classList.remove('added-to-cart-visible');
+    //     }, 2000)
+    //   addedMessageTimeouts[productId] = timeoutId;
 
 
         if (matchingItem){
@@ -131,13 +143,8 @@ document.querySelectorAll(".js-add-to-cart").forEach((button) => {
         })
 
 
-        
-
         document.querySelector(".js-cart-quantity").innerHTML = cartQuantity;
         
-
-
-
         // console.log(cart) 
     })
 })
@@ -157,3 +164,24 @@ document.querySelectorAll(".js-add-to-cart").forEach((button) => {
 
 
 
+// Modules ==> a better way to organize our code
+// Create a Module 
+// 1. Create a file
+// 2. Don't load the file with <script>
+// Any variable we create inside the file, will be contained inside the file.
+
+
+// Get a Variable out of a file 
+// 1. Add type ="module" attribute.
+// 2. Export.
+// 3. Import.
+
+
+// Put all imports at the top of the file.
+// We need to use live server.
+
+
+// Benefits of Modules 
+// 1. Helps us avoid naming conflicts.
+// 2. Don't have to worry about order of files.
+// Modules = better way to organize our code.
