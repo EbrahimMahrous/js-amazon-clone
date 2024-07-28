@@ -56,3 +56,28 @@ export function removeFromCart(productId){
     cart = newCart;
     saveToStorage()
 }
+
+
+// 1. Update deliveryOptionId in the cart.
+// 2. Update the page.
+
+// I need to know:
+// 1. Product  
+// 2. Delivery Option.
+
+
+// Steps:
+// 1. loop through the cart and find the product.
+// 2. Update the deliveryOptionId of the product.
+export function updateDeliveryOption(productId, deliveryOptionId){
+    let matchingItem;
+    cart.forEach((cartItem) => {
+        if(productId === cartItem.productId){
+            matchingItem = cartItem;
+        }
+    })
+
+    matchingItem.deliveryOptionId = deliveryOptionId
+
+    saveToStorage()
+}

@@ -6,7 +6,7 @@
 // 5. Saved the cart in localStorage.
 
 
-import { cart, removeFromCart } from "../data/cart.js";
+import { cart, removeFromCart, updateDeliveryOption } from "../data/cart.js";
 import { products } from "../data/products.js";
 import { formatCurrency } from "./utils/money.js";
 // Dayjs + javaScript Modules.
@@ -113,7 +113,7 @@ function deliveryOptionsHTML(matchingProduct, cartItem){
 
         html +=
         `
-        <div class="delivery-option">
+        <div class="delivery-option js-delivery-option" data-product-id = '${matchingProduct.id}' data-delivery-option-id = '${deliveryOption.id}'>
             <input type="radio" 
             ${isChecked ? 'Checked' : ''}
             class="delivery-option-input" name="delivery-option-${matchingProduct.id}">
@@ -157,6 +157,12 @@ document.querySelectorAll('.js-delete-link').forEach((link)=>{
     })
 })
 
+document.querySelectorAll('.js-delivery-option').forEach((element)=>{
+    element.addEventListener('click', ()=>{
+        const {productId, deliveryOptionId} = element.dataset
+        updateDeliveryOption(productId, deliveryOptionId)
+    })
+})
 
 // External Libraries = code that is outside of our project.
 
@@ -189,8 +195,6 @@ document.querySelectorAll('.js-delete-link').forEach((link)=>{
 
 
 
-
-// 14: 39
 
 
 
