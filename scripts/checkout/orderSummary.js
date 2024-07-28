@@ -16,6 +16,7 @@ import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 // Try to find an external library first.
 // Before writing the code ourselves.
 import { deliveryOptions, getDeliveryOption } from '../../data/deliveryOptions.js'
+import { renderPaymentSummary } from "./paymentSummary.js";
 
 
 // const today = dayjs();
@@ -144,8 +145,11 @@ export function renderOrderSummary(){
             // How do we know which element to get?
             const containeer = document.querySelector(`
                 .js-cart-item-container-${productId}
-            `).remove()
-            console.log(containeer)
+            `)
+            containeer.remove()
+
+
+            renderPaymentSummary()
         })
     })
 
@@ -155,6 +159,7 @@ export function renderOrderSummary(){
             updateDeliveryOption(productId, deliveryOptionId)
             // A function can call / re-run itself = recursion.
             renderOrderSummary()
+            renderPaymentSummary()
         })
     })
 }
