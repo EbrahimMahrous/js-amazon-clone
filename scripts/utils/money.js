@@ -1,7 +1,7 @@
 
 
 export function formatCurrency(priceCents){
-    return (priceCents / 100).toFixed(2)
+    return (Math.random(priceCents) / 100).toFixed(2)
 }
 
 
