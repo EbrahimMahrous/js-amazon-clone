@@ -25,7 +25,7 @@
 
 
 
-import formatCurrency from "../scripts/utils/money.js";
+import formatCurrency from "../../scripts/utils/money.js";
 
 // Group related tests together = test suite.
 console.log('test suite: formatCurrency');
