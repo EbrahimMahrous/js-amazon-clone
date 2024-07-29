@@ -54,13 +54,21 @@ if (formatCurrency(2000.5) === '20.01') {
   console.log('failed');
 }
 
-// Testing Framework = external library that helps us write tests easier.
-// Most testing framework are similar Other testing framework ==> Jest(for ReactJS) + MochaJS
-// Popular test framework is Jasmine ==> 
-
-
-
-
 // 1. Create test suite.
 // 2. Create tests.
 // 3. Create values and display result.
+
+// Testing Framework = external library that helps us write tests easier.
+// Most testing framework are similar Other testing framework ==> Jest(for ReactJS) + MochaJS
+// Popular test framework is Jasmine
+
+
+// Run tests using jasmine
+
+// spec = test
+
+// 
+
+
+
+
