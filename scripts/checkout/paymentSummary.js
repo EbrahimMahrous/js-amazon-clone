@@ -72,3 +72,21 @@ export function renderPaymentSummary(){
     // console.log(productPriceCents)
     // console.log(shippingPriceCents)
 }
+
+
+// in this lesson:
+// 1. External libraries = code outside of our projects.
+// 2. DayJS external library.
+// 3. External libraries + Javascript Modules, default export.
+// 4. created the delivery section.
+// 5. MVC = Model + View + Controller.
+// 6. created the payment section.
+
+
+
+
+
+
+// Object-Oriented Programming(OOP) ==> Another style of programming (another way we write our code).
+
+// Object-Oriented Programming(OOP) = organizing our code into objects.

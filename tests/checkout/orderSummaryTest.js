@@ -84,3 +84,12 @@ describe('Test suite: renderOrderSummary', ()=> {
 // process
 // 1. Make changes to code. 
 // 2. Re-run the tests.
+
+
+// In this lesson:
+// 1. Manual and automated tests.
+// 2. Test cases and test suites.
+// 3. Testing Framework = helps us write tests easier.
+// 4. Mock and spy on methods.
+// 5. Test web pages using integration tests.
+// 6. Hooks.

@@ -1,3 +1,10 @@
+// Procedural Programming
+// Procedure = a set of step-by-step instructions = a function
+
+
+// Object-Oriented Programming(OOP) ==> Another style of programming (another way we write our code).
+// Object-Oriented Programming(OOP) = organizing our code into objects.
+
 export let cart ;
 
 loadFromStorage()
