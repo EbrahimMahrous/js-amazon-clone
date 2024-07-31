@@ -88,3 +88,7 @@ console.log(cart)
 console.log(businesscart)
 
 
+// An even better way to generate objects.
+// Class = object generator.
+
+
