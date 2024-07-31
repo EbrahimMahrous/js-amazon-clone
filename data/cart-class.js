@@ -3,16 +3,21 @@
 
 // Use PascalCase for things that generate objects.
 class Cart {
+
+    // Public property.
     cartItems;
-    localStorageKey;
+    // Private properties and methods.
+    // Private = it can only be accessed inside the class.
+    #localStorageKey;
 
     constructor(localStorageKey){
-        this.localStorageKey = localStorageKey;
-        this.loadFromStorage();
+        this.#localStorageKey = localStorageKey;
+        this.#loadFromStorage();
     }
 
-    loadFromStorage(){
-        this.cartItems = JSON.parse(localStorage.getItem(this.localStorageKey));
+    // Private methods
+    #loadFromStorage(){
+        this.cartItems = JSON.parse(localStorage.getItem(this.#localStorageKey));
 
         if(!this.cartItems){
             this.cartItems = [{
@@ -27,7 +32,7 @@ class Cart {
         }
     };
     saveToStorage(){
-        localStorage.setItem(this.localStorageKey, JSON.stringify(this.cartItems))
+        localStorage.setItem(this.#localStorageKey, JSON.stringify(this.cartItems))
     };
     addToCart(productId){
         let matchingItem;
@@ -72,6 +77,10 @@ class Cart {
 const cart = new Cart('cart-oop')
 const businessCart = new Cart('cart-business')
 
+// SyntaxError: Private field '#localStorageKey' must be declared in an enclosing class
+// field = property.
+// cart.#localStorageKey = 'this';
+
 console.log(cart)
 console.log(businessCart)
 console.log(businessCart instanceof Cart)
@@ -96,3 +105,5 @@ console.log(businessCart instanceof Cart)
 
 
 // class = better way to generate objects in OOP.
+
+// Private methods
