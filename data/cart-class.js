@@ -107,3 +107,5 @@ console.log(businessCart instanceof Cart)
 // class = better way to generate objects in OOP.
 
 // Private methods
+
+
