@@ -13,6 +13,8 @@ export function getProduct(productId){
 }
 
 
+
+
 // Converting an object into a class.
 class Product {
   id;
@@ -101,6 +103,46 @@ class clothing extends Product{
 
 // console.log(tshirt)
 // console.log(tshirt.getPrice())
+
+
+// new Date() = generates an object that represents the current date.
+const date = new Date()
+console.log(date)
+// .toLocaleTimeString() = gives the current time.
+console.log(date.toLocaleTimeString())
+
+// 'this' ==> lets an object access its own properties.
+// 'this' ==> can be used anywhere in our code.
+// There's no object for 'this' to point to this = undefiend.
+// console.log(this) // undefiend
+// const object2 = {
+//   a: 2,
+//   b: this.a
+// }
+
+// function logThis(){
+//   // Inside a function, we can change 'this' to whatever we want using method .call()
+//   console.log(this)
+// }
+// logThis() // undefiend
+// logThis.call('hello') // hello
+
+// // Arrow functions do not change the value of 'this'
+// this // undefiend
+// const object3 = {
+//   method: () => {
+//     // 'this' will have the same value as outside the arrow function.
+//     console.log(this) // undefiend   // 'this' keeps the value that it had outside the arrow function.
+//   }
+// }
+// object3.method() // undefiend
+
+// // why are arrow functions designed this way?
+
+// // Summary of 'this':
+// // 1. inside a method, 'this' points to the outer object.
+// // 2. inside a function, this = undefiend but we can change it.
+// // 3. Arrow functions, do not change the value of 'this'.
 
 
 
@@ -769,5 +811,10 @@ export const products = [
   }
   return new Product(productDetails)
 })
+
+// How to test classes ?
+// Testing classes is the same as normal tests.
+
+// Built-in classes = classes that are provided by the language.
 
 
