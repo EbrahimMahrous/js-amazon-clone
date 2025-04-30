@@ -818,3 +818,13 @@ export const products = [
 // Built-in classes = classes that are provided by the language.
 
 
+// 17- In this lesson:
+// 1. object-oriented programming (oop) = organize our code into objects.
+// 2. Use a function to generate objects
+// 3. Classes
+// 4. Private properties and methods
+// 5. Inheritance
+// 6. Method overriding & polymorphism.
+// 7. More details about 'this'
+
+
