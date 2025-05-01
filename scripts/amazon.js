@@ -72,7 +72,6 @@ products.forEach( (product) => {
                     </select>
                 </div>
 
-                // Polymorphism = use a method without knowing the class. 
                 ${product.extraInfoHTML()}
 
 
